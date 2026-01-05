@@ -1,60 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Shop – Cozy Crochet Nest</title>
-<link rel="stylesheet" href="style.css">
-<script src="cart.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Shop | Cozy Crochet Nest</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
 
 <header>
-  <div class="logo">
-    <img src="images/logo.png">
-    <span>Cozy Crochet Nest</span>
-  </div>
+  <img src="./images/logo.jpg" class="logo">
   <nav>
     <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
     <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<h2 class="page-title">Shop</h2>
+<h2 class="page-title">Our Products</h2>
 
-<div class="product">
-  <img src="images/product2.jpg" alt="Crochet Product 1">
-  <h3>Crochet Flower</h3>
-  <button onclick="addToCart('Crochet Flower')">Add to Cart</button>
+<div class="products">
+
+  <div class="product">
+    <img src="./images/product2.jpg">
+    <h3>Crochet Flower</h3>
+    <button onclick="addToCart('Crochet Flower')">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="./images/product3.jpg">
+    <h3>Crochet Keychain</h3>
+    <button onclick="addToCart('Crochet Keychain')">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="./images/product4.jpg">
+    <h3>Crochet Toy</h3>
+    <button onclick="addToCart('Crochet Toy')">Add to Cart</button>
+  </div>
+ <div class="product">
+    <img src="./images/product5.jpg">
+    <h3>Crochet Flower</h3>
+    <button onclick="addToCart('Crochet Flower')">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="./images/product6.jpg">
+    <h3>Crochet Keychain</h3>
+    <button onclick="addToCart('Crochet Keychain')">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="./images/product7.jpg">
+    <h3>Crochet Toy</h3>
+    <button onclick="addToCart('Crochet Toy')">Add to Cart</button>
+  </div>
 </div>
 
-<div class="product">
-  <img src="images/product3.jpg" alt="Crochet Product 2">
-  <h3>Crochet Keychain</h3>
-  <button onclick="addToCart('Crochet Keychain')">Add to Cart</button>
-</div>
-
-<div class="product">
-  <img src="images/product4.jpg" alt="Crochet Product 3">
-  <h3>Another Crochet Item</h3>
-  <button onclick="addToCart('Another Crochet Item')">Add to Cart</button>
-</div>
-<div class="product">
-  <img src="images/product5.jpg" alt="Crochet Product 1">
-  <h3>Crochet Flower</h3>
-  <button onclick="addToCart('Crochet Flower')">Add to Cart</button>
-</div>
-
-<div class="product">
-  <img src="images/product6.jpg" alt="Crochet Product 2">
-  <h3>Crochet Keychain</h3>
-  <button onclick="addToCart('Crochet Keychain')">Add to Cart</button>
-</div>
-
-<div class="product">
-  <img src="images/product7.jpg" alt="Crochet Product 3">
-  <h3>Another Crochet Item</h3>
-  <button onclick="addToCart('Another Crochet Item')">Add to Cart</button>
-</div>
-
+<script src="./script.js"></script>
 </body>
 </html>
+
