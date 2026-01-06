@@ -210,4 +210,39 @@ body {
   border-radius: 50%;
   font-weight: bold;
 }
+/* HERO SECTION */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero img {
+  width: 220px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .hero img {
+    width: 260px;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+}
 
