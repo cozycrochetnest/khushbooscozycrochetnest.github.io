@@ -62,7 +62,7 @@ function placeOrder() {
 
   message += `\nTotal: ₹${total}`;
 
-  let url = "https://wa.me/919698635000?text=" + encodeURIComponent(message);
+  let url = "https://wa.me/917889267007?text=" + encodeURIComponent(message);
   window.open(url, "_blank");
 }
 
