@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
   message += `%0A📍 Address: ${address}`;
   message += `%0A📞 Phone: ${phone}`;
 
-  window.open(`https://wa.me/919698635000?text=${message}`, "_blank");
+  window.open(`https://wa.me/917889267007?text=${message}`, "_blank");
 }
 
 });
