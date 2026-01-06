@@ -44,6 +44,12 @@ function removeItem(index) {
   localStorage.setItem("cart", JSON.stringify(cart));
   loadCart();
 }
+function toggleUPI() {
+  let payment = document.querySelector('input[name="payment"]:checked').value;
+  document.getElementById("upiBox").style.display =
+    payment === "UPI" ? "block" : "none";
+}
+
 
 // PLACE ORDER
 function placeOrder() {
