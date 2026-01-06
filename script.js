@@ -21,7 +21,9 @@ function loadCart() {
   let list = document.getElementById("cartItems");
   if (!list) return;
 
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
   list.innerHTML = "";
+
   let total = 0;
 
   cart.forEach((item, index) => {
@@ -36,13 +38,15 @@ function loadCart() {
     list.appendChild(li);
     total += item.price * item.qty;
   });
-   updateCartCount();
 
   let totalLi = document.createElement("li");
   totalLi.style.fontWeight = "bold";
   totalLi.textContent = `Total: ₹${total}`;
   list.appendChild(totalLi);
+
   updateCartCount();
+}
+
 
 }
 function changeQty(index, change) {
