@@ -97,7 +97,13 @@ function placeOrder() {
   message += `Payment Method: ${payment}`;
 
   let url = "https://wa.me/917889267007?text=" + encodeURIComponent(message);
-  window.open(url, "_blank");
+ window.open(url, "_blank");
+cart = [];
+localStorage.removeItem("cart");
+setTimeout(() => {
+  window.location.href = "success.html";
+}, 1000);
+
 }
 
 document.addEventListener("DOMContentLoaded", loadCart);
