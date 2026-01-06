@@ -12,6 +12,8 @@ function addToCart(name, price, qty) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   alert(name + " added to cart!");
+  updateCartCount();
+
 }
 
 // LOAD CART
@@ -39,6 +41,8 @@ function loadCart() {
   totalLi.style.fontWeight = "bold";
   totalLi.textContent = `Total: ₹${total}`;
   list.appendChild(totalLi);
+  updateCartCount();
+
 }
 function changeQty(index, change) {
   cart[index].qty += change;
@@ -49,6 +53,8 @@ function changeQty(index, change) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   loadCart();
+  updateCartCount();
+
 }
 
 // REMOVE ITEM
@@ -56,6 +62,8 @@ function removeItem(index) {
   cart.splice(index, 1);
   localStorage.setItem("cart", JSON.stringify(cart));
   loadCart();
+  updateCartCount();
+
 }
 function toggleUPI() {
   let payment = document.querySelector('input[name="payment"]:checked').value;
