@@ -62,6 +62,17 @@ function toggleUPI() {
   document.getElementById("upiBox").style.display =
     payment === "UPI" ? "block" : "none";
 }
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let count = 0;
+
+  cart.forEach(item => {
+    count += item.qty;
+  });
+
+  let badge = document.getElementById("cartCount");
+  if (badge) badge.textContent = count;
+}
 
 
 // PLACE ORDER
