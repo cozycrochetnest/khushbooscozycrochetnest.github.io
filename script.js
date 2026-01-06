@@ -1,33 +1,33 @@
+// GLOBAL CART (ONLY ONE)
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// ADD TO CART WITH QUANTITY
-function addToCart(name, price, qty) {
+/* ---------------- ADD TO CART ---------------- */
+function addToCart(name, price, qty = 1) {
   qty = parseInt(qty);
 
-  cart.push({
-    name: name,
-    price: price,
-    qty: qty
-  });
+  const existing = cart.find(item => item.name === name);
+
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    cart.push({ name, price, qty });
+  }
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert(name + " added to cart!");
   updateCartCount();
-
+  alert(name + " added to cart!");
 }
 
-// LOAD CART
+/* ---------------- LOAD CART ---------------- */
 function loadCart() {
-  let list = document.getElementById("cartItems");
+  const list = document.getElementById("cartItems");
   if (!list) return;
 
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
   list.innerHTML = "";
-
   let total = 0;
 
   cart.forEach((item, index) => {
-    let li = document.createElement("li");
+    const li = document.createElement("li");
     li.innerHTML = `
       <strong>${item.name}</strong><br>
       ₹${item.price} × ${item.qty} = ₹${item.price * item.qty}<br>
@@ -39,7 +39,7 @@ function loadCart() {
     total += item.price * item.qty;
   });
 
-  let totalLi = document.createElement("li");
+  const totalLi = document.createElement("li");
   totalLi.style.fontWeight = "bold";
   totalLi.textContent = `Total: ₹${total}`;
   list.appendChild(totalLi);
@@ -47,8 +47,7 @@ function loadCart() {
   updateCartCount();
 }
 
-
-}
+/* ---------------- CHANGE QTY ---------------- */
 function changeQty(index, change) {
   cart[index].qty += change;
 
@@ -58,58 +57,51 @@ function changeQty(index, change) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   loadCart();
-  updateCartCount();
-
 }
 
-// REMOVE ITEM
+/* ---------------- REMOVE ITEM ---------------- */
 function removeItem(index) {
   cart.splice(index, 1);
   localStorage.setItem("cart", JSON.stringify(cart));
   loadCart();
-  updateCartCount();
-
 }
+
+/* ---------------- CART COUNT BADGE ---------------- */
+function updateCartCount() {
+  const badge = document.getElementById("cartCount");
+  if (!badge) return;
+
+  let count = 0;
+  cart.forEach(item => count += item.qty);
+  badge.textContent = count;
+}
+
+/* ---------------- PAYMENT UPI TOGGLE ---------------- */
 function toggleUPI() {
-  let payment = document.querySelector('input[name="payment"]:checked').value;
+  const payment = document.querySelector('input[name="payment"]:checked').value;
   document.getElementById("upiBox").style.display =
     payment === "UPI" ? "block" : "none";
 }
-function updateCartCount() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let count = 0;
 
-  cart.forEach(item => {
-    count += item.qty;
-  });
-
-  let badge = document.getElementById("cartCount");
-  if (badge) badge.textContent = count;
-}
-
-
-// PLACE ORDER
+/* ---------------- PLACE ORDER ---------------- */
 function placeOrder() {
   if (cart.length === 0) {
     alert("Cart is empty");
     return;
   }
 
-  let name = document.getElementById("custName").value.trim();
-  let phone = document.getElementById("custPhone").value.trim();
-  let address = document.getElementById("custAddress").value.trim();
-  let payment = document.querySelector('input[name="payment"]:checked').value;
+  const name = document.getElementById("custName").value.trim();
+  const phone = document.getElementById("custPhone").value.trim();
+  const address = document.getElementById("custAddress").value.trim();
+  const payment = document.querySelector('input[name="payment"]:checked').value;
 
   if (!name || !phone || !address) {
     alert("Please fill all details");
     return;
   }
 
-  let message = "🧶 *New Order - Cozy Crochet Nest* 🧶\n\n";
-  message += `Name: ${name}\n`;
-  message += `Phone: ${phone}\n`;
-  message += `Address: ${address}\n\n`;
-  message += "Order Items:\n";
+  let message = "🧶 *New Order – Cozy Crochet Nest* 🧶\n\n";
+  message += `Name: ${name}\nPhone: ${phone}\nAddress: ${address}\n\nItems:\n`;
 
   let total = 0;
   cart.forEach(item => {
@@ -117,17 +109,24 @@ function placeOrder() {
     total += item.price * item.qty;
   });
 
-  message += `\nTotal: ₹${total}\n`;
-  message += `Payment Method: ${payment}`;
+  message += `\nTotal: ₹${total}\nPayment: ${payment}`;
 
-  let url = "https://wa.me/917889267007?text=" + encodeURIComponent(message);
- window.open(url, "_blank");
-cart = [];
-localStorage.removeItem("cart");
-setTimeout(() => {
-  window.location.href = "success.html";
-}, 1000);
+  window.open(
+    "https://wa.me/919698635000?text=" + encodeURIComponent(message),
+    "_blank"
+  );
 
+  cart = [];
+  localStorage.removeItem("cart");
+  updateCartCount();
+
+  setTimeout(() => {
+    window.location.href = "success.html";
+  }, 1000);
 }
 
-document.addEventListener("DOMContentLoaded", updateCartCount);
+/* ---------------- ON LOAD ---------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  loadCart();
+  updateCartCount();
+});
