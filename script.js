@@ -129,5 +129,31 @@ function placeOrder() {
 document.addEventListener("DOMContentLoaded", () => {
   loadCart();
   updateCartCount();
+  function placeOrder() {
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
+
+  const name = document.getElementById("custName").value;
+  const phone = document.getElementById("custPhone").value;
+  const address = document.getElementById("custAddress").value;
+
+  if (!name || !phone || !address) {
+    alert("Please fill all details");
+    return;
+  }
+
+  let message = `🧶 *New Order - Cozy Crochet Nest*%0A`;
+  cart.forEach(item => {
+    message += `• ${item.name} × ${item.qty} = ₹${item.price * item.qty}%0A`;
+  });
+
+  message += `%0A📍 Address: ${address}`;
+  message += `%0A📞 Phone: ${phone}`;
+
+  window.open(`https://wa.me/919698635000?text=${message}`, "_blank");
+}
+
 });
 document.addEventListener("DOMContentLoaded", loadCart);
