@@ -112,7 +112,7 @@ function placeOrder() {
   message += `\nTotal: ₹${total}\nPayment: ${payment}`;
 
   window.open(
-    "https://wa.me/919698635000?text=" + encodeURIComponent(message),
+    "https://wa.me/917889267007?text=" + encodeURIComponent(message),
     "_blank"
   );
 
