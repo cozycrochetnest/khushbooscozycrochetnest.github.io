@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Cozy Crochet Nest</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Crochet Nest - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
 </head>
 <body>
-
-<header class="top-bar">
-  <a href="cart.html" class="cart-btn">🛒 Cart</a>
-
-  <div class="right-nav">
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</header>
-<section class="hero">
-  <img src="image/logo.jpg" alt="Cozy Crochet Nest Logo">
-  <h1>Cozy Crochet Nest</h1>
-  <p>Handmade crochet with love 🧶</p>
-  <a href="shop.html" class="btn">Shop Now</a>
-</section>
-
-
+    <header>
+        <nav>
+            <div class="logo">Cozy Crochet Nest</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="checkout.html">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Welcome to Cozy Crochet Nest</h1>
+        <p>Handcrafted crochet items for your cozy home. Shop now!</p>
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=400&fit=crop" alt="Cozy Crochet Hero">
+        <a href="products.html" class="btn">Shop Products</a>
+    </section>
+    <section class="featured">
+        <h2>Featured Products</h2>
+        <div class="gallery" id="featured-gallery"></div>
+    </section>
+    <footer>
+        <p>&copy; 2023 Cozy Crochet Nest. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
